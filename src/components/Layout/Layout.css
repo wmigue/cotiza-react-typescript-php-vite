@@ -1,0 +1,43 @@
+.contenedor {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   background-color: rgb(113, 113, 113);
+   min-width: 1200px;
+   justify-content: space-around;
+   color: rgb(233, 224, 224);
+   padding: 20px;
+}
+
+.contenedor>.pariente1 {
+   display: flex;
+   flex-direction: column;
+   text-align: start;
+   justify-content: flex-start;
+   
+   width: 50%;
+}
+
+.contenedor>.pariente2 {
+   display: flex;
+   flex-direction: column;
+   text-align: start;
+   justify-content: flex-start;
+
+   width: 50%;
+}
+
+
+
+
+@media (max-width: 600px) {
+   .contenedor {
+      min-width: 600px;
+      flex-direction: column; /* Cambia a una dirección de columna */
+   }
+
+   .contenedor > .pariente1,
+   .contenedor > .pariente2 {
+      width: 100%; /* Ocupa todo el ancho disponible */
+   }
+}
