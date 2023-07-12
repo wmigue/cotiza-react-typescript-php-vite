@@ -1,8 +1,8 @@
 <?php
 require ('./dominio-permitido.php');
-require("conexion.php");
+require("../../../../conexion.php");
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: $dp");
 header("Access-Control-Allow-Methods: OPTIONS,GET");
 
 
@@ -14,6 +14,7 @@ while ($row = mysqli_fetch_assoc($resultado)) {
         "nombre" => $row["nombre"],
         "unidad" => $row["unidad"],
         "precio" => $row["precio"],
+        "unidad" => $row["unidad"],
     ];
 }
 

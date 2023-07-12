@@ -1,0 +1,23 @@
+
+.productos{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.productos>select{
+    padding: 5px;
+}
+
+.productos> select:first-of-type{
+    width: 160px;
+   
+}
+
+.productos> input:last-of-type {
+    width: 100px;
+    padding: 5px;
+}
+
+.descuento{
+    margin: 20px;
+}

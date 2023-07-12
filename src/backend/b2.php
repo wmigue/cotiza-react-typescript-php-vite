@@ -1,8 +1,8 @@
 <?php
 require ('./dominio-permitido.php');
-require("conexion.php");
+require("../../../../conexion.php");
 
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: $dp");
 header("Access-Control-Allow-Methods: OPTIONS,GET");
 
 

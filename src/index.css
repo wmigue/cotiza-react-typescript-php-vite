@@ -30,6 +30,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+    background-color: #2e2e2e;
+  
+  
 }
 
 h1 {

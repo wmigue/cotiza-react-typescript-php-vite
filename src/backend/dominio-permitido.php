@@ -1,4 +1,4 @@
 <?php
-   $dp="http://localhost:5173"
-   //$dp="http://produccion.com"
+   $dp=" http://127.0.0.1:5173"
+   //$dp="https://canavesio.syslab.com.ar"
 ?>
