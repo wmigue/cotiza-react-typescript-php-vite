@@ -1,0 +1,12 @@
+//cambiar ruta de la conexion, para que conecte con conexion de carpeta principal. ✅
+//agregar pedido a base de datos al imprimir pdf.✅
+//generar copia del pdf duplicado.✅
+//eliminar productos de la vista.✅
+//JWT GENERAR TOKENS AL LOGIN✅
+//borrar productos de la lista.✅
+//algunos proveedores consideran el IVA 10,5%.. Se podría seleccionar el iva que se considera? 10,5% y 21% ?✅
+//Al agregar un producto, es posible ver en esta venta si el producto que se carga ya fue cargado anteriormente ? Osea al ir tipeando que aparezca como para no cargarlo nuevamente.✅
+//Es posible que al generar el pdf..  el original y duplicado se generen en un solo archivo
+//El nombre del archivo podría generarse como 
+O.C. N° 01-00000 - Nombre del proveedor que figura en el registro - fecha de emisión..
+//hacer que la exportacion del pdf funcione en el celular tambien.

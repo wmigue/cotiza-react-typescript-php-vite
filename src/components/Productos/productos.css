@@ -1,0 +1,57 @@
+
+.productos{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.productos>select{
+    padding: 5px;
+}
+
+.productos> select:first-of-type{
+    width: 160px;
+   
+}
+
+.productos> input:last-of-type {
+    width: 100px;
+    padding: 5px;
+}
+
+.descuento{
+    margin: 20px;
+}
+
+
+.btnEliminar{
+    padding: 4px;
+    background-color: red;
+    margin: 10px;
+
+
+
+}
+
+.inputexcedente{
+    padding-left: 15px;
+}
+
+.btnAgregar{
+    padding:1px !important;
+    background-color: rgb(94, 255, 148);
+    color: black;
+    border-radius: 50px;
+}
+.btnAgregar2{
+    padding:7px !important;
+    outline: none !important;
+}
+
+.btnAgregar2:hover{
+   color:rgb(94, 255, 148);
+}
+
+.selector1{
+    background-color: rgb(78, 78, 78) !important;
+    color: aliceblue !important;
+}

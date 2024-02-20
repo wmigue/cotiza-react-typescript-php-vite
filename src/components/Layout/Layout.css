@@ -1,0 +1,17 @@
+.mi-grid {
+  max-width: 90vw;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  background-color: rgb(113, 113, 113);
+  color: rgb(233, 224, 224);
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .mi-grid {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}

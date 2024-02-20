@@ -1,0 +1,163 @@
+b {
+  font-size: 12px;
+}
+
+.firma {
+  font-size: 12px;
+}
+
+.bolderizar {
+  font-weight: bold;
+}
+
+.italizar {
+  font-style: italic;
+}
+
+.acherizar {
+  font-size: 21px;
+}
+
+.contenedor {
+  background-color: rgb(240, 240, 240);
+  width: 55vw;
+  height: 100%;
+  padding: 10px;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 0.1fr 1.5fr 0fr 1fr 0.1fr 1fr; /* Cambia las proporciones de las filas */
+  grid-template-areas:
+    "content-1	    content-1 	content-1"
+    "content-2	    content-2 	content-2"
+    "content-3	    content-3 	content-3"
+    "content-4	    content-4 	content-4"
+    "content-5	    content-5 	content-5"
+    "content-6	    content-6 	content-6"
+    "content-7	    content-7 	content-7";
+}
+
+.contenedor div {
+  background-color: rgb(255, 255, 255);
+}
+
+.contenedor .content-1 {
+  border-radius: 4px;
+  padding: 10px;
+  grid-area: content-1;
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+}
+
+.content-1 > .content-1A {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content-1 > .content-1B {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: left;
+  align-items: left;
+}
+.content-1 > .content-1C {
+  display: flex;
+  margin: auto;
+  vertical-align: center;
+  justify-content: center;
+}
+
+.contenedor .content-2 {
+  padding: 30px;
+  padding-left: 60px;
+  grid-area: content-2;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "c2a c2b"
+    "c2c c2d"
+    "c2e c2f"
+    "c2g";
+  justify-items: left; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.contenedor .content-3 {
+  display: grid;
+  grid-area: content-3;
+  padding-left: 18px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  background-image: url("../../../public/afip.png"); /* Ruta de tu imagen */
+  background-size: 415px 240px;
+  background-position: 250px 10px; /* Centrar la imagen */
+  background-repeat: no-repeat; /* Evitar repetición de la imagen */
+
+}
+
+
+
+
+.content-3 table {
+  opacity: 0.7;
+ /*  margin-left: 40px; */
+}
+
+.content-3 .totales {
+  opacity: 0.7;
+  background: rgb(205, 205, 205);
+  height: fit-content;
+}
+
+.contenedor .content-4 {
+  display: grid;
+  grid-area: content-4;
+  justify-content: right;
+}
+
+.content-5 {
+  padding: 20px;
+  padding-left: 60px;
+  display: grid;
+  grid-area: content-5;
+  grid-template-areas:
+    "c2a c2b c2c "
+    "c2d c2e c2f"
+    "c2g c2h c2i"
+    "c2j c2k c2l "
+    "c2m c2n c2o "
+    "c2p c2q c2r "
+    "c2s c2t c2u";
+  justify-items: left; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+.content-6 {
+  display: grid;
+  grid-area: content-6;
+  padding: 60px;
+}
+
+.content-7 {
+  display: grid;
+  grid-area: content-7;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: start; /* Centrar verticalmente */
+  grid-template-rows: repeat(3, 0.3fr) 4fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "c7a c7b c7c"
+    "c7d c7e c7f"
+    "c7g c7h c7i"
+    "c7g c7h c7i";
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.content-7 div {
+  margin: auto;
+}

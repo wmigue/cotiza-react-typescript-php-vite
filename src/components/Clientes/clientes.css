@@ -1,0 +1,12 @@
+
+
+.clientes>select{
+    width: 300px;
+    padding: 10px;
+}
+.input{
+    width: 300px;
+    padding: 3px !important;
+    background-color: rgb(158, 158, 158) !important;
+    color: black !important;
+}

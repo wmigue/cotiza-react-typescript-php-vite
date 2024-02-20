@@ -1,0 +1,41 @@
+* [33mcommit 8e00a15df8dc8a044d544bfc36353010a77416e2[m[33m ([m[1;36mHEAD -> [m[1;32mtoupload[m[33m)[m
+[31m|[m Author: Miguel V.C <wmigue@gmail.com>
+[31m|[m Date:   Sat Dec 23 10:38:18 2023 -0300
+[31m|[m 
+[31m|[m     22-12-2023 agregar funcionalidad eliminar proveedores
+[31m|[m 
+* [33mcommit 26187d7358b3497b87ccf6ce30269459a41ac612[m
+[31m|[m Author: Miguel V.C <wmigue@gmail.com>
+[31m|[m Date:   Tue Dec 19 23:29:32 2023 -0300
+[31m|[m 
+[31m|[m     se reparo modal de presupuesto transporta > 15km
+[31m|[m 
+* [33mcommit 018d7a825795af279d038583bab7514f91eb97f6[m
+[31m|[m Author: Miguel V.C <wmigue@gmail.com>
+[31m|[m Date:   Tue Dec 19 23:06:50 2023 -0300
+[31m|[m 
+[31m|[m     19-12-2022
+[31m|[m 
+* [33mcommit 02d441356a711ee3431c6f648e3349a3fa1d89d0[m
+[31m|[m Author: Miguel V.C <wmigue@gmail.com>
+[31m|[m Date:   Sat Aug 12 11:32:57 2023 -0300
+[31m|[m 
+[31m|[m     feat: se agrego la funcionalidad de eliminar un producto.
+[31m|[m 
+* [33mcommit 3c6e7e043118d77b4f77bc68d25210f1fd850a18[m
+[31m|[m Author: Miguel V.C <wmigue@gmail.com>
+[31m|[m Date:   Sat Aug 12 11:20:32 2023 -0300
+[31m|[m 
+[31m|[m     feat: version 1.0 funcionando perfecto pero sin funcionalidad para eliminar productos ya agregados, tampoco lista de destinos mayores a 15km
+[31m|[m 
+* [33mcommit 00a7bb9d9cf5991d20ab126a185288c898bdee3e[m[33m ([m[1;31morigin/toupload[m[33m)[m
+[31m|[m Author: Miguel V.C <wmigue@gmail.com>
+[31m|[m Date:   Wed Jul 12 16:41:01 2023 -0300
+[31m|[m 
+[31m|[m     chore: v1.0
+[31m|[m 
+* [33mcommit b2a4eb4c473f6814929e35d052431e64a2e9b7c7[m[33m ([m[1;32mmaster[m[33m)[m
+  Author: Miguel V.C <wmigue@gmail.com>
+  Date:   Wed Jun 21 11:28:14 2023 -0300
+  
+      con mui
