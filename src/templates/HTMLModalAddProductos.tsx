@@ -80,17 +80,8 @@ export default function HTMLModalAddProductos() {
             <Row className="g-2">
 
                 <Row className="text-center">
-                    <h5> Productos / Servicios</h5>
-                    <p>
-                        <Button
-                            className="btnAgregar2 btn btn-success w-25 "
-                            size="sm"
-                            onClick={handleAdd}
-                        >
+                    <h5 className="fs-3 p-3"> Productos / Servicios</h5>
 
-                            <b className="btnAgregar">+</b>
-                        </Button>
-                    </p>
                 </Row>
 
 
@@ -153,7 +144,7 @@ export default function HTMLModalAddProductos() {
                                                 value={x.unidad}
                                                 onChange={e => handleChange(e)}
                                             >
-                                                <option>unidades</option>
+                                                <option>Un.</option>
                                                 <option>tn</option>
                                                 <option>litros</option>
                                                 <option>kg</option>
@@ -179,7 +170,7 @@ export default function HTMLModalAddProductos() {
 
                                     </Col>
 
-                                    <Col>
+                                    <Col className="text-center">
                                         <Button
                                             className="btnAgregar2 btn btn-danger w-25 "
                                             size="sm"
@@ -193,8 +184,19 @@ export default function HTMLModalAddProductos() {
                         )
                     })
                 }
+               <hr className="bg-danger border-2 border-top border-danger mt-4" />
+                <Row className="text-center mt-3">
+                    <p>
+                        <Button
+                            className="btnAgregar2 btn btn-success w-25 "
+                            size="sm"
+                            onClick={handleAdd}
+                        >
 
-
+                            <b className="btnAgregar p-1 text-large fs-5"> +</b>
+                        </Button>
+                    </p>
+                </Row>
 
             </Row >
 

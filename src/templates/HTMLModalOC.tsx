@@ -127,7 +127,7 @@ export const HTMLModalOC = () => {
                     >
                         <option value={0.21}>21 %</option>
                         <option value={0.105}>10.5 %</option>
-                        <option value={0}>N/D</option>
+                        <option value={0}>N/A</option>
                     </Form.Select>
                 </FloatingLabel>
             </div>

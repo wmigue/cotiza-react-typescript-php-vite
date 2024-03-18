@@ -279,7 +279,7 @@ export const OrdenCompra = (): JSX.Element => {
                             <small className="bolderizar" data-testid="iv">  {
                                 desplegables.iva_tipo == 0.105 ?
                                     "IVA 10.5%: " + FormatearMoneda1(totales.iva) :
-                                    desplegables.iva_tipo == 0 ? "IVA $0.00" :
+                                    desplegables.iva_tipo == 0 ? "IVA -" :
                                         "IVA 21%: " + FormatearMoneda1(totales.iva)
                             } </small><br />
                             <small className="bolderizar">  Total: {FormatearMoneda1(totales.total)}</small>
