@@ -1,6 +1,9 @@
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 
+
+const tipoImg: string = 'jpeg'
+
 export const exportarDIVaPDF = (
   selectorDivAExoportar: string,
   textoAdicional: string = "",
@@ -10,6 +13,7 @@ export const exportarDIVaPDF = (
   return new Promise((resolve, reject) => {
     const options = {
       scale: 1,
+      quality: 4,
       useCORS: true,
       logging: false,
       scrollX: 0,
@@ -24,8 +28,8 @@ export const exportarDIVaPDF = (
       console.log('Espere, generando el PDF...')
       html2canvas(element, options)
         .then(canvas => {
-          const imgData = canvas.toDataURL('image/jpeg')
-          const pdf = new jsPDF('p', 'mm', 'A4', true)
+          const imgData = canvas.toDataURL('image/' + tipoImg)
+          const pdf = new jsPDF('p', 'mm', 'A4', false)
           if (necesitoDuplicado === true) {
             imgWidth = pdf.internal.pageSize.getWidth()
             imgHeight = pdf.internal.pageSize.getHeight()
@@ -33,7 +37,7 @@ export const exportarDIVaPDF = (
             imgWidth = 210
             imgHeight = (canvas.height * imgWidth) / canvas.width
           }
-          pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight)
+          pdf.addImage(imgData, tipoImg, 0, 0, imgWidth, imgHeight)
           pdf.setFontSize(5)
           const maxWidth = 190
           const lines = pdf.splitTextToSize(textoAdicional, maxWidth)
@@ -52,8 +56,8 @@ export const exportarDIVaPDF = (
             }
             html2canvas(element, options)
               .then(secondPageCanvas => {
-                const secondPageImgData = secondPageCanvas.toDataURL('image/jpeg')
-                pdf.addImage(secondPageImgData, 'JPEG', 0, 0, imgWidth, imgHeight)
+                const secondPageImgData = secondPageCanvas.toDataURL('image/' + tipoImg)
+                pdf.addImage(secondPageImgData, tipoImg, 0, 0, imgWidth, imgHeight)
                 // Restaurar el contenido original después de la generación del PDF
                 const elementoItalizar = document.querySelector('.italizar')
                 if (elementoItalizar instanceof HTMLElement) {

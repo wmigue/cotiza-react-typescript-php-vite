@@ -145,12 +145,12 @@ export default function HTMLModalAddProductos() {
                                                 onChange={e => handleChange(e)}
                                             >
                                                 <option>Un.</option>
+                                                <option>m</option>
                                                 <option>tn</option>
                                                 <option>litros</option>
                                                 <option>kg</option>
                                                 <option>km</option>
                                                 <option>otro</option>
-
                                             </Form.Select>
                                         </FloatingLabel>
                                     </Col>
@@ -184,7 +184,7 @@ export default function HTMLModalAddProductos() {
                         )
                     })
                 }
-               <hr className="bg-danger border-2 border-top border-danger mt-4" />
+                <hr className="bg-danger border-2 border-top border-danger mt-4" />
                 <Row className="text-center mt-3">
                     <p>
                         <Button

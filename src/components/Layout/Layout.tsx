@@ -15,7 +15,6 @@ export const Layout = ({ children }: Props): JSX.Element => {
         <div className="mi-grid ">
             <div >
                 {children}
-
             </div>
             <div >
                 <Cotizacion />

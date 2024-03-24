@@ -21,12 +21,12 @@ interface ContextValue {
     setDescuento: React.Dispatch<React.SetStateAction<boolean>>
     lista: number
     setLista: React.Dispatch<React.SetStateAction<number>>
-    localidadTemp:string
+    localidadTemp: string
     setLocalidadTemp: React.Dispatch<React.SetStateAction<string>>
 }
 
 
-const initialValuesProduct = [
+export const initialValuesProduct = [
     {
         id: uuidv4(),
         selected: "",
@@ -37,7 +37,7 @@ const initialValuesProduct = [
 ]
 
 
-const initialValuesTotales = {
+export const initialValuesTotales = {
     neto: 0,
     total: 0,
     iva: 0,
@@ -48,7 +48,7 @@ const initialValuesTotales = {
 
 export const MiContexto = createContext<ContextValue>(
     {
-        productosSeleccionados: [],
+        productosSeleccionados: initialValuesProduct,
         setProductosSeleccionados: () => { },
         cliente: '',
         setCliente: () => { },
@@ -58,8 +58,8 @@ export const MiContexto = createContext<ContextValue>(
         setDescuento: () => { },
         lista: 0,
         setLista: () => { },
-        localidadTemp:'',
-        setLocalidadTemp:()=>{}
+        localidadTemp: '',
+        setLocalidadTemp: () => { }
 
     }
 )

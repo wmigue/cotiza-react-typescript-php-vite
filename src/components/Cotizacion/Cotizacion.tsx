@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { exportarDIVaPDF } from '../../utils/pdf-functions'
 import { MENSAJE } from './mensaje'
-import { useContexto } from '../../context/context'
+import { initialValuesProduct, initialValuesTotales, useContexto } from '../../context/context'
 import './cotizacion.css'
 import { generarNumeroRemito, formatoMonedas } from '../../utils/name-generator-functions'
 import { formateoArgentina } from '../../utils/dates'
 import Modalizar from '../Modal/Modal'
 import Loader from '../Loader.tsx/Loader'
 import { Layout } from '../../templates/Layout/Layout'
+import { NumeroALetras } from '../../utils/numeroALetras'
 
 
 const env = import.meta.env
@@ -18,7 +19,8 @@ export const Cotizacion = () => {
   // @ts-ignore
   const [loader, setLoader] = useState(false)
 
-  const { productosSeleccionados, cliente, totales, descuento, lista, localidadTemp } = useContexto()
+  const { productosSeleccionados, cliente, totales, descuento, lista, localidadTemp, setProductosSeleccionados, setCliente, setTotales } = useContexto()
+
 
   const handClick = async () => {
     if (confirm('se generará un nuevo número de presupuesto. continuar?')) {
@@ -28,12 +30,22 @@ export const Cotizacion = () => {
         setNumero(String(num))
         await insertarNuevoRemitoDB(num)
         await exportarDIVaPDF('cotizacion', MENSAJE, String(generarNumeroRemito('COTIZACION_', 1, num)))
-        window.location.reload()
+        //  window.location.reload()
+        await reiniciarValoresCotizacion()
         setLoader(false)
+
       } catch (e: any) {
         console.log(e)
       }
     }
+  }
+
+
+  const reiniciarValoresCotizacion = async () => {
+    setProductosSeleccionados(initialValuesProduct)
+    setTotales(initialValuesTotales)
+    setCliente("")
+    setNumero("por emitir")
   }
 
 
@@ -56,11 +68,17 @@ export const Cotizacion = () => {
 
 
   const getNumeroCotizacionAAsignar = async (): Promise<number> => {
-    const url = env.VITE_SINGLETON + env.VITE_ULTIMO_REMITO
-    const data = await fetch(url)
-    const res = await data.json()
-    const ultimo = Number(res.ultimo)
-    return ultimo + 1
+    try {
+      const url = env.VITE_SINGLETON + env.VITE_ULTIMO_REMITO
+      const data = await fetch(url)
+      const res = await data.json()
+      const ultimo = Number(await res.ultimo)
+      return ultimo + 1
+    } catch (e: any) {
+      console.log(e)
+      return 0
+    }
+
   }
 
 
@@ -78,10 +96,10 @@ export const Cotizacion = () => {
 
       <div className="cotizacion">
         <div className='uno'>
-          <img src="../../../public/imagenes-cotizacion/1-1.png" alt="" />
+          <img src="../../../public/imagenes-cotizacion/1-2.png" alt="" />
         </div>
         <div className='dos'>
-          <h2>Cotización - Hormigón Elaborado Formosa</h2>
+          <h4>Cotización - Hormigón Elaborado Formosa</h4>
         </div>
         <div className='tres'>
           {
@@ -93,16 +111,16 @@ export const Cotizacion = () => {
               ) : null
           }
           <div>
-            FECHA: <b> {formateoArgentina(String(new Date()))} </b>
+            FECHA:  {formateoArgentina(String(new Date()))}
           </div>
           <div>
-            COTIZACIÓN N°: <b> {numero} </b>
+            COTIZACIÓN N°: {numero}
           </div>
           <div>
-            LISTA: <b> {lista} </b>
+            LISTA: {lista}
           </div>
           <div>
-            DESTINO: <b> {localidadTemp} </b>
+            DESTINO:  {localidadTemp}
           </div>
         </div>
         <div className='cuatro'>
@@ -123,7 +141,7 @@ export const Cotizacion = () => {
                     return (
                       <tr>
                         <td>{x.selected}</td>
-                        <td>{formatoMonedas(x.precioU.toFixed(2))}</td>
+                        <td>$ {formatoMonedas(x.precioU.toFixed(2))}</td>
                         <td>{x.unidad}</td>
                         <td>{x.m3.toFixed(2)}</td>
                         <td>$ {formatoMonedas((x.precioU * x.m3).toFixed(2))}</td>
@@ -135,35 +153,58 @@ export const Cotizacion = () => {
           </table>
         </div>
         <div className='cinco '>
-          <p>Neto:
-            <b>$ {formatoMonedas(totales.neto)}</b>
-          </p>
-          <p>I.V.A.
-            <b>$ {formatoMonedas(totales.iva)}</b>
-          </p>
-          <p>Total
-            <b>$ {formatoMonedas(totales.total)}</b>
-          </p>
-          {
-            descuento ? (
-              <p className='bg-warning'>Con desc. 10% pago contado anticipado
-                <b>$ {formatoMonedas(totales.descuento)}</b>
-              </p>
-            ) : null
+          <div>
+            <img src="../../../public/iso-norma.jpeg" width={150} alt="" />
+          </div>
 
-          }
+          <div>
+            <p>NETO:
+              <b> $ {formatoMonedas(totales.neto)}</b>
+            </p>
+            <p>I.V.A.:
+              <b> $ {formatoMonedas(totales.iva)}</b>
+            </p>
+            <p>TOTAL:
+              <b> $ {formatoMonedas(totales.total)}</b>
+            </p>
+            {
+              descuento ? (
+                <p className='bg-warning'>
+
+                  <em>Con desc. 10% pago contado anticipado:
+                    <b> $ {formatoMonedas(totales.descuento)}</b>
+                  </em>
+
+                </p>
+              ) : null
+
+            }
+            <div>
+
+            </div>
+            <div className={
+              descuento ? 'aletras margenTextoTotal2' : 'aletras margenTextoTotal1'
+            }>
+              <b  >SON PESOS: &nbsp;
+                {
+                  descuento ? NumeroALetras(totales.descuento, false) : NumeroALetras(totales.total, false)
+                }.
+              </b>
+            </div>
+          </div>
+
         </div>
         <div className='seis'></div>
         <div className='7'></div>
-      </div>
+      </div >
 
       {
-        <Modalizar show={loader} setShow={setLoader}>
+        < Modalizar show={loader} setShow={setLoader} >
           <Layout>
             <Loader />
             generando cotización
           </Layout>
-        </Modalizar>
+        </Modalizar >
       }
 
     </>
