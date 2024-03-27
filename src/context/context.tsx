@@ -30,7 +30,7 @@ export const initialValuesProduct = [
     {
         id: uuidv4(),
         selected: "",
-        m3: 1,
+        m3: 0,
         precioU: 0,
         unidad: ''
     }

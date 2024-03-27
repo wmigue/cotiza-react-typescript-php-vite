@@ -1,5 +1,5 @@
 <?php
-require ('./dominio-permitido.php');
+require('./dominio-permitido.php');
 require("../../../../conexion.php");
 // Permitir solicitudes desde cualquier origen
 header("Access-Control-Allow-Origin: $dp");
@@ -16,7 +16,5 @@ $json = file_get_contents("php://input");
 $data = json_decode($json, true); // true para obtener un array asociativo
 
 $numero = $data['numero'];
-$jsonData = json_encode($data['json']) ;
-
+$jsonData = json_encode($data['json']);
 $result = $conexion->query(" INSERT INTO cotizador(numero, json) values('$numero', '$json') ") or die("error en base de datos" . $conexion->error);
-

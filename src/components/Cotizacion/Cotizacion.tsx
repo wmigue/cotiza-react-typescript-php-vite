@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { exportarDIVaPDF } from '../../utils/pdf-functions'
 import { MENSAJE } from './mensaje'
-import { initialValuesProduct, initialValuesTotales, useContexto } from '../../context/context'
+import { useContexto } from '../../context/context'
 import './cotizacion.css'
 import { generarNumeroRemito, formatoMonedas } from '../../utils/name-generator-functions'
 import { formateoArgentina } from '../../utils/dates'
@@ -19,7 +19,7 @@ export const Cotizacion = () => {
   // @ts-ignore
   const [loader, setLoader] = useState(false)
 
-  const { productosSeleccionados, cliente, totales, descuento, lista, localidadTemp, setProductosSeleccionados, setCliente, setTotales } = useContexto()
+  const { productosSeleccionados, cliente, totales, descuento, lista, localidadTemp, setCliente } = useContexto()
 
 
   const handClick = async () => {
@@ -33,19 +33,24 @@ export const Cotizacion = () => {
         //  window.location.reload()
         await reiniciarValoresCotizacion()
         setLoader(false)
-
       } catch (e: any) {
-        console.log(e)
+        alert("ERROR:" + e)
+        console.error(e)
       }
     }
   }
 
 
   const reiniciarValoresCotizacion = async () => {
-    setProductosSeleccionados(initialValuesProduct)
-    setTotales(initialValuesTotales)
-    setCliente("")
-    setNumero("por emitir")
+    try {
+      // setProductosSeleccionados(prev => prev)
+      // setTotales(prev => prev)
+      setCliente("")
+      setNumero("por emitir")
+    } catch (e) {
+      alert(e)
+      return 0
+    }
   }
 
 
@@ -62,7 +67,12 @@ export const Cotizacion = () => {
       },
       body: JSON.stringify(dataToSend)
     }
-    return await fetch(url, options)
+    try {
+      return await fetch(url, options)
+    } catch (e) {
+      alert(e)
+      return 0
+    }
   }
 
 
@@ -76,6 +86,7 @@ export const Cotizacion = () => {
       return ultimo + 1
     } catch (e: any) {
       console.log(e)
+      alert(e)
       return 0
     }
 
